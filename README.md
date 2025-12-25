@@ -23,13 +23,13 @@ Here are some ideas to get you started:
 
 A curated collection of projects showcasing my work in Frontend Development, Full-Stack Applications, and AI-powered tools.
 Each project focuses on clean architecture, performance, and real-world usability.
-* ** 📦Inventory-Management-App**
+* **📦Inventory-Management-App**
   A product inventory management application (Express.js, Node.js). | [🧑🏻‍💻 Github](https://github.com/vidit19sharma/Inventory-Management-App) | [View](https://inventory-management-app-phi-six.vercel.app/)
 
-* ** 🎨Dev-Portfolio**
+* **🎨Dev-Portfolio**
   A portfolio application for Developers (TypeScript, React). | [🧑🏻‍💻 GitHub](https://github.com/vidit19sharma/Dev-Portfolio) | [View](https://dev-portfolio-mu-sable.vercel.app/)
 
-* ** 🤖Neogentic-Agents**
+* **🤖Neogentic-Agents**
   An army of Python agents — likely AI/automation focused. | [🧑🏻‍💻 GitHub](https://github.com/vidit19sharma/Neogentic-Agents)
 
 
