@@ -17,18 +17,20 @@ Here are some ideas to get you started:
 # 💫 About Me:
 🔭 I’m currently working on AI integrated Websites<br>👯 I’m looking to collaborate on any interactive React App<br>🤝 I’m looking for help with JavaScript<br>🌱 I’m currently learning Agentic AI<br>💬 Ask me about random Computer Facts<br>⚡ Fun fact : JavaScript original name was "Mocha" 
 
-##🚀 Projects
+---
+
+## 🚀 Projects
 
 A curated collection of projects showcasing my work in Frontend Development, Full-Stack Applications, and AI-powered tools.
 Each project focuses on clean architecture, performance, and real-world usability.
-* **Inventory-Management-App**
-  A product inventory management application (Express.js, Node.js). ([GitHub](https://github.com/vidit19sharma/Inventory-Management-App)) | [View](https://inventory-management-app-phi-six.vercel.app/)
+* ** 📦Inventory-Management-App**
+  A product inventory management application (Express.js, Node.js). | [🧑🏻‍💻 Github](https://github.com/vidit19sharma/Inventory-Management-App) | [View](https://inventory-management-app-phi-six.vercel.app/)
 
-* **Dev-Portfolio**
-  A portfolio application for Developers (TypeScript, React). ([GitHub](https://github.com/vidit19sharma/Dev-Portfolio)) | [View](https://dev-portfolio-mu-sable.vercel.app/)
+* ** 🎨Dev-Portfolio**
+  A portfolio application for Developers (TypeScript, React). | [🧑🏻‍💻 GitHub](https://github.com/vidit19sharma/Dev-Portfolio) | [View](https://dev-portfolio-mu-sable.vercel.app/)
 
-* **Neogentic-Agents**
-  An army of Python agents — likely AI/automation focused. ([GitHub](https://github.com/vidit19sharma/Neogentic-Agents))
+* ** 🤖Neogentic-Agents**
+  An army of Python agents — likely AI/automation focused. | [🧑🏻‍💻 GitHub](https://github.com/vidit19sharma/Neogentic-Agents)
 
 
 ---
