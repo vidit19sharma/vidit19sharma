@@ -15,6 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 # 💫 About Me:
+I'm Neo 👾
 🔭 I’m currently working on AI integrated Websites<br>👯 I’m looking to collaborate on any interactive React App<br>🤝 I’m looking for help with JavaScript<br>🌱 I’m currently learning Agentic AI<br>💬 Ask me about random Computer Facts<br>⚡ Fun fact : JavaScript original name was "Mocha" 
 
 ---
