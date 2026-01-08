@@ -14,6 +14,17 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+<div align="center">
+
+[![Hello World, I'm Vidit!](assets/header.gif)](https://github.com/vidit19sharma)
+
+
+[![Twitter/X](https://skillicons.dev/icons?i=twitter)](https://twitter.com/vidit19sharma) &nbsp;
+[![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/) &nbsp;
+[![Gmail](https://skillicons.dev/icons?i=gmail)](mailto:vidit19sharma@gmail.com?subject=Hello%20Vidit,%20From%20Github)
+
+</div>
+
 # 💫 About Me:
 I'm Neo 👾
 🔭 I’m currently working on AI integrated Websites<br>👯 I’m looking to collaborate on any interactive React App<br>🤝 I’m looking for help with JavaScript<br>🌱 I’m currently learning Agentic AI<br>💬 Ask me about random Computer Facts<br>⚡ Fun fact : JavaScript original name was "Mocha" 
