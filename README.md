@@ -16,7 +16,7 @@ Here are some ideas to get you started:
 -->
 <div align="center">
 
-[![Hello World, I'm Vidit!](Assets/banner.gif)](https://github.com/vidit19sharma)
+[![Hello World, I'm Vidit!](Assets/Banner.gif)](https://github.com/vidit19sharma)
 
 
 [![Twitter/X](https://skillicons.dev/icons?i=twitter)](https://twitter.com/vidit19sharma) &nbsp;
