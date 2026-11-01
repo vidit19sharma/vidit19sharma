@@ -96,7 +96,8 @@ def main():
     ap.add_argument("--rows", type=int)
     ap.add_argument("--row", type=float)
     ap.add_argument("--hold", type=float)
-    ap.add_argument("--out", default="assets/ascii-portrait.svg")
+    ap.add_argument("--theme", choices=("dark", "light"), default="dark")
+    ap.add_argument("--out", help="default assets/ascii-portrait.svg (dark) / assets/ascii-portrait-light.svg (light)")
     ap.add_argument("images", nargs="*")
     a = ap.parse_args()
     cfg = {}
@@ -111,6 +112,11 @@ def main():
     for k, d in (("cols", 66), ("rows", 48), ("row", 0.07), ("hold", 3.0)):
         if getattr(a, k) is None:
             setattr(a, k, type(d)(knobs.get(k, d)))
+    if not a.out:
+        a.out = "assets/ascii-portrait-light.svg" if a.theme == "light" else "assets/ascii-portrait.svg"
+    # only colours differ between themes: bg, card stroke (light only), ink, edge ink, cursor
+    bg, stroke, ink, edge, cur = (("#ffffff", ' stroke="#d0d7de"', "#1a7f37", "#116329", "#116329") if a.theme == "light"
+                                  else ("#161b22", "", "#26a641", "#39d353", "#39d353"))
     if not a.images:
         ap.error("no images: pass PNG paths or --config with a non-empty frames[]")
     import os
@@ -123,10 +129,11 @@ def main():
     hide, show = "clip-path:inset(0 100% 0 0)", "clip-path:inset(0 0 0 0)"
     o = [
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 300" width="276" height="300" role="img" '
+        f'data-cols="{C}" data-rows="{a.rows}" data-frames="{K}" data-cell-w="{264 / C:g}" data-cell-h="6" data-theme="{a.theme}" '
         'aria-label="ASCII art of Neo\'s mascot, typed line by line">',
-        '<rect width="276" height="300" rx="6" fill="#161b22"/>',
-        "<style>text{font:6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;fill:#26a641}"
-        ".a{fill:#39d353}"
+        f'<rect width="276" height="300" rx="6" fill="{bg}"{stroke}/>',
+        f"<style>text{{font:6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;fill:{ink}}}"
+        f".a{{fill:{edge}}}"
         f".k{{animation:type {T:.2f}s linear infinite;{hide}}}"
         f"@keyframes type{{0%{{opacity:1;{hide};animation-timing-function:steps({C},end)}}"
         f"{p1:.3f}%{{opacity:1;{show}}}{p2:.3f}%{{opacity:1;{show}}}"
@@ -150,7 +157,7 @@ def main():
             )
         o.append("</g>")
     for r in range(a.rows):
-        o.append(f'<rect class="cur" width="4" height="6" x="6" y="{6 + r * 6}" fill="#39d353" opacity="0" '
+        o.append(f'<rect class="cur" width="4" height="6" x="6" y="{6 + r * 6}" fill="{cur}" opacity="0" '
                  f'style="animation-delay:{r * R:.2f}s"/>')
     o.append("</svg>\n")
     open(a.out, "w").write("\n".join(o))

@@ -7,9 +7,10 @@ import { pathToFileURL } from "node:url";
 import { args, esc, render, readJSON, write, works, warnMissing, TEMPLATES } from "./_lib.mjs";
 
 const a = args(`
-Usage: node build-mock.mjs --config profile.config.json [--readme README.md] [--audit data/audit.json] [--out mock.html] [--screenshot mock.png] [--delay 8]
+Usage: node build-mock.mjs --config profile.config.json [--readme README.md] [--audit data/audit.json] [--out mock.html] [--screenshot mock.png] [--delay 8] [--color-scheme dark|light]
 The README is HTML-only, so it is inlined as-is. Relative asset paths resolve next to --out.
---delay: seconds to wait before the screenshot (mid-animation frames: e.g. 1.5).`, ["config"]);
+--delay: seconds to wait before the screenshot (mid-animation frames: e.g. 1.5).
+--color-scheme: emulated prefers-color-scheme for the screenshot (default dark); <picture> sources follow it.`, ["config"]);
 const C = readJSON(a.config);
 const README = typeof a.readme === "string" ? a.readme : "README.md", OUT = typeof a.out === "string" ? a.out : "mock.html";
 const A = typeof a.audit === "string" ? readJSON(a.audit) : null;
@@ -34,7 +35,8 @@ warnMissing(readme, dirname(resolve(OUT)), existsSync, join);
 
 if (typeof a.screenshot === "string") {
   const delay = Math.round((Number(typeof a.delay === "string" ? a.delay : 8) || 8) * 1000);
-  const argv = ["-y", "playwright", "screenshot", "--full-page", "--color-scheme=dark", "--viewport-size=1280,900", `--wait-for-timeout=${delay}`, pathToFileURL(resolve(OUT)).href, resolve(a.screenshot)];
+  const scheme = a["color-scheme"] === "light" ? "light" : "dark";
+  const argv = ["-y", "playwright", "screenshot", "--full-page", `--color-scheme=${scheme}`, "--viewport-size=1280,900", `--wait-for-timeout=${delay}`, pathToFileURL(resolve(OUT)).href, resolve(a.screenshot)];
   const cmd = `npx ${argv.join(" ")}`;
   if (!works("npx", ["-y", "playwright", "--version"])) console.log(`playwright unavailable — run later:\n  ${cmd}`);
   else {

@@ -12,6 +12,11 @@ on:
 permissions:
   contents: write
 
+# A manual dispatch must not race a push-triggered run (both auto-commit).
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -40,8 +45,11 @@ jobs:
           node scripts/render-heatmap.mjs --data data/github.json --style glyph  --theme dark  --prompt "$P" --out assets/heatmap-glyph-dark.svg
           node scripts/render-heatmap.mjs --data data/github.json --style glyph  --theme light --prompt "$P" --out assets/heatmap-glyph-light.svg
 
-      - name: Render neofetch
-        run: node scripts/render-neofetch.mjs --config profile.config.json --data data/github.json --out assets/neofetch.svg
+      - name: Render neofetch (dark + light)
+        run: |
+          A=""; [ -f data/audit.json ] && A="--audit data/audit.json"
+          node scripts/render-neofetch.mjs --config profile.config.json --data data/github.json $A --theme dark  --out assets/neofetch.svg
+          node scripts/render-neofetch.mjs --config profile.config.json --data data/github.json $A --theme light --out assets/neofetch-light.svg
 
       - name: Update activity
         run: node scripts/update-activity.mjs --user ${{ github.repository_owner }} --readme README.md

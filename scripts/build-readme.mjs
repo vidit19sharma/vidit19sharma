@@ -15,12 +15,15 @@ const S = { hero: "session", socials: true, ascii: true, neofetch: true, heatmap
 const U = C.user, both = C.theme === "both", outDir = dirname(resolve(OUT));
 const repo = (n) => A?.repos?.find((r) => r.name.toLowerCase() === n.toLowerCase()) || {};
 
+// theme both → <picture> with prefers-color-scheme sources; dark|light → single <img> for that theme.
 const pic = (dark, light, attrs) => both
   ? `<picture><source media="(prefers-color-scheme: dark)" srcset="${esc(dark)}"><source media="(prefers-color-scheme: light)" srcset="${esc(light)}"><img src="${esc(dark)}" ${attrs}></picture>`
-  : `<img src="${esc(dark)}" ${attrs}>`;
+  : `<img src="${esc(C.theme === "light" ? light : dark)}" ${attrs}>`;
+const asset = (n, attrs) => pic(`assets/${n}.svg`, `assets/${n}-light.svg`, attrs);
 
 // Socials (skillicons, same look as the mock).
 const L = C.links || {};
+const term = L.terminal && (/^https?:/.test(L.terminal) ? L.terminal : `https://${L.terminal}`).replace(/\/+$/, "");
 const socials = [
   [L.website || C.site, "vercel", "Website"], [L.linkedin, "linkedin", "LinkedIn"], [L.x, "twitter", "X"],
   [L.email && (L.email.startsWith("mailto:") ? L.email : `mailto:${L.email}`), "gmail", "Email"],
@@ -37,6 +40,7 @@ const about = C.about?.length ? C.about.map(esc) : [
   C.stack?.length && `💬 Ask me about ${esc(C.stack.slice(0, 3).join(", "))}`,
   (C.location || siteHref) && `📍 ${[C.location && esc(C.location), siteHref && `<a href="${esc(siteHref)}">${esc(C.site.replace(/^https?:\/\//, ""))}</a>`].filter(Boolean).join(" · ")}`,
 ].filter(Boolean);
+if (term) about.push(`⌨️ Try the interactive terminal → <a href="${esc(term)}">${esc(term.replace(/^https?:\/\//, ""))}</a>`);
 
 // Heatmap.
 const hstyle = S.heatmap === "glyph" ? "heatmap-glyph" : "heatmap";
@@ -85,11 +89,15 @@ const stats_html = [
 const snakeBase = `https://raw.githubusercontent.com/${enc}/${enc}/output/github-contribution-grid-snake`;
 const snake_html = `<picture><source media="(prefers-color-scheme: dark)" srcset="${snakeBase}-dark.svg"><source media="(prefers-color-scheme: light)" srcset="${snakeBase}.svg"><img src="${snakeBase}-dark.svg" width="846" alt="Contribution snake"></picture>`;
 
-const footer_html = [siteHref && `<a href="${esc(siteHref)}">${esc(C.site.replace(/^https?:\/\//, ""))}</a>`, `<a href="https://github.com/${enc}?tab=repositories">all repositories</a>`, "assets refresh daily via GitHub Actions"].filter(Boolean).join(" · ");
+const footer_html = [siteHref && `<a href="${esc(siteHref)}">${esc(C.site.replace(/^https?:\/\//, ""))}</a>`, `<a href="https://github.com/${enc}?tab=repositories">all repositories</a>`, term && `<a href="${esc(term)}">live terminal</a>`, "assets refresh daily via GitHub Actions"].filter(Boolean).join(" · ");
 
 const view = {
   name: C.name, tagline: C.tagline,
-  hero: S.hero && S.hero !== "none",
+  hero: S.hero && S.hero !== "none", hero_html: asset("hero", `width="846" alt="${esc(`${C.name} — ${C.tagline || ""}`)}"`),
+  ascii_html: asset("ascii-portrait", `width="276" alt="ASCII portrait of ${esc(C.name)}"`),
+  neofetch_html: asset("neofetch", `width="300" alt="neofetch: ${esc(C.name)}"`),
+  // A bare <img> on GitHub links to the raw image; always wrap the icon row.
+  stack_href: term ? `${term}/?cmd=stack` : "#-tech-stack", // GitHub slug of "💻 Tech Stack" (emoji dropped → leading "-")
   socials: S.socials && socials, socials_html: socials,
   about: about.length || S.ascii, ascii: S.ascii, about_html: about.map((x) => `<li>${x}</li>`).join("\n"),
   cards: S.neofetch || (S.heatmap && S.heatmap !== "none"), neofetch: S.neofetch, heatmap: S.heatmap && S.heatmap !== "none", heatmap_html,

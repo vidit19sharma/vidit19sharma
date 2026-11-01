@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/hero.svg" width="846" alt="Vidit Sharma — building agent tooling for Claude Code &amp; OpenCode"></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg"><source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg"><img src="assets/hero.svg" width="846" alt="Vidit Sharma — building agent tooling for Claude Code &amp; OpenCode"></picture></p>
 
 <p align="center">
 <a href="https://viditsharma.online"><img src="https://skillicons.dev/icons?i=vercel" width="36" alt="Website"></a>&nbsp;
@@ -8,7 +8,7 @@
 </p>
 
 <table><tr>
-<td width="300" valign="top"><img src="assets/ascii-portrait.svg" width="276" alt="ASCII portrait of Vidit Sharma"></td>
+<td width="300" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/ascii-portrait.svg"><source media="(prefers-color-scheme: light)" srcset="assets/ascii-portrait-light.svg"><img src="assets/ascii-portrait.svg" width="276" alt="ASCII portrait of Vidit Sharma"></picture></td>
 <td valign="top">
 <h3>👾 About</h3>
 <ul>
@@ -17,13 +17,14 @@
 <li>🌱 Building agent tooling for Claude Code &amp; OpenCode · TypeScript · Delhi</li>
 <li>💬 Ask me about TypeScript, Node.js, React</li>
 <li>📍 Delhi, IN · <a href="https://viditsharma.online">viditsharma.online</a></li>
+<li>⌨️ Try the interactive terminal → <a href="https://vidit19sharma.github.io">vidit19sharma.github.io</a></li>
 </ul>
 </td>
 </tr></table>
 
 <table><tr>
-<td valign="top"><img src="assets/neofetch.svg" width="300" alt="neofetch: Vidit Sharma"></td>
-<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/heatmap-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/heatmap-light.svg"><img src="assets/heatmap-dark.svg" width="470" alt="1361 contributions in the last year"></picture></td>
+<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/neofetch.svg"><source media="(prefers-color-scheme: light)" srcset="assets/neofetch-light.svg"><img src="assets/neofetch.svg" width="300" alt="neofetch: Vidit Sharma"></picture></td>
+<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/heatmap-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/heatmap-light.svg"><img src="assets/heatmap-dark.svg" width="470" alt="1368 contributions in the last year"></picture></td>
 </tr></table>
 
 <h3>🚀 Projects</h3>
@@ -79,7 +80,7 @@ HR management system: employees, leave, payroll views<br>
 </table>
 
 <h3>💻 Tech Stack</h3>
-<p align="center"><img src="https://skillicons.dev/icons?i=ts,nodejs,react,py,bash,vercel&perline=6" alt="Tech stack: TypeScript, Node.js, React, Python, Shell, Claude Code, OpenCode, Vercel"></p>
+<p align="center"><a href="https://vidit19sharma.github.io/?cmd=stack"><img src="https://skillicons.dev/icons?i=ts,nodejs,react,py,bash,vercel&perline=6" alt="Tech stack: TypeScript, Node.js, React, Python, Shell, Claude Code, OpenCode, Vercel"></a></p>
 
 <h3>🐍 Contribution snake</h3>
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vidit19sharma/vidit19sharma/output/github-contribution-grid-snake-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vidit19sharma/vidit19sharma/output/github-contribution-grid-snake.svg"><img src="https://raw.githubusercontent.com/vidit19sharma/vidit19sharma/output/github-contribution-grid-snake-dark.svg" width="846" alt="Contribution snake"></picture></p>
@@ -97,4 +98,4 @@ HR management system: employees, leave, payroll views<br>
 <!--ACTIVITY:END-->
 
 <hr>
-<p align="center"><sub><a href="https://viditsharma.online">viditsharma.online</a> · <a href="https://github.com/vidit19sharma?tab=repositories">all repositories</a> · assets refresh daily via GitHub Actions</sub></p>
+<p align="center"><sub><a href="https://viditsharma.online">viditsharma.online</a> · <a href="https://github.com/vidit19sharma?tab=repositories">all repositories</a> · <a href="https://vidit19sharma.github.io">live terminal</a> · assets refresh daily via GitHub Actions</sub></p>
