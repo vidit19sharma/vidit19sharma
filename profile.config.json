@@ -1,0 +1,34 @@
+{
+  "user": "vidit19sharma",
+  "name": "Vidit Sharma",
+  "alias": "neo",
+  "handle_prompt": "neo@github",
+  "tagline": "building agent tooling for Claude Code & OpenCode",
+  "role": "AI-agent tooling builder",
+  "location": "Delhi, IN",
+  "site": "viditsharma.online",
+  "bio": "Building agent tooling for Claude Code & OpenCode · TypeScript · Delhi",
+  "about": [],
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/vidit-sharma-60890a1ba",
+    "x": "https://x.com/vidit19sharma",
+    "email": "mailto:vidit19sharma@gmail.com",
+    "website": "https://viditsharma.online"
+  },
+  "stack": ["TypeScript", "Node.js", "React", "Python", "Shell", "Claude Code", "OpenCode", "Vercel"],
+  "projects": [
+    { "repo": "neogents", "tags": ["TypeScript", "Claude Code", "Memory"], "description": "NEO: a Claude Code plugin that turns the agent into an orchestrator with a persistent second brain" },
+    { "repo": "opencode-cursor-auth", "tags": ["TypeScript", "OpenCode", "Cursor SDK"], "description": "OpenCode plugin that authenticates through the Cursor SDK so you can reuse your Cursor subscription" },
+    { "repo": "neo-skills", "tags": ["Shell", "Claude Code", "OpenCode"], "description": "System-design skill packs and an animated-profile builder for Claude Code and OpenCode agents" },
+    { "repo": "Inventory-Management-App", "tags": ["EJS", "Node.js", "Express", "Vercel"], "demo": "https://inventory-management-app-phi-six.vercel.app/", "description": "Full-stack inventory tracker with auth and reporting, live on Vercel" },
+    { "repo": "Dev-Portfolio", "tags": ["TypeScript", "React", "Vercel"], "demo": "https://viditsharma.online", "description": "Personal portfolio site powering viditsharma.online" },
+    { "repo": "hrms", "tags": ["JavaScript", "React"], "description": "HR management system: employees, leave, payroll views" }
+  ],
+  "frames": ["frames/01.png", "frames/02.png", "frames/03.png", "frames/04.png", "frames/05.png"],
+  "theme": "both",
+  "sections": {
+    "hero": "session", "socials": true, "ascii": true, "neofetch": true, "heatmap": "square",
+    "projects": true, "stack": true, "stats": "hosted", "snake": true, "activity": true, "footer": true
+  },
+  "ascii": { "cols": 66, "rows": 48, "row": 0.07, "hold": 3.0 }
+}

@@ -1,0 +1,52 @@
+# .github/workflows/refresh.yml — regenerates data + SVG assets + activity for the profile README.
+# Expects the neo-github-profile scripts/ copied into the profile repo and profile.config.json at the root.
+name: refresh profile assets
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    env:
+      # The default token usually works. If contributionsCollection comes back null,
+      # add a PAT with `read:user` as secret PROFILE_TOKEN and use: ${{ secrets.PROFILE_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch contributions
+        run: node scripts/fetch-contributions.mjs --user ${{ github.repository_owner }} --out data/github.json
+
+      - name: Render heatmaps
+        run: |
+          P="$(node -e 'const c=require("./profile.config.json");console.log(c.handle_prompt||c.user+"@github")')"
+          node scripts/render-heatmap.mjs --data data/github.json --style square --theme dark  --prompt "$P" --out assets/heatmap-dark.svg
+          node scripts/render-heatmap.mjs --data data/github.json --style square --theme light --prompt "$P" --out assets/heatmap-light.svg
+          node scripts/render-heatmap.mjs --data data/github.json --style glyph  --theme dark  --prompt "$P" --out assets/heatmap-glyph-dark.svg
+          node scripts/render-heatmap.mjs --data data/github.json --style glyph  --theme light --prompt "$P" --out assets/heatmap-glyph-light.svg
+
+      - name: Render neofetch
+        run: node scripts/render-neofetch.mjs --config profile.config.json --data data/github.json --out assets/neofetch.svg
+
+      - name: Update activity
+        run: node scripts/update-activity.mjs --user ${{ github.repository_owner }} --readme README.md
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: refresh profile assets [skip ci]"
+          file_pattern: "data/*.json assets/*.svg README.md"

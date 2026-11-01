@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="218" viewBox="0 0 300 218" role="img" aria-label="Name: Vidit Sharma; Role: AI-agent tooling builder; Location: Delhi, IN; Building: neogents · TypeScript; Stack: TypeScript, Node.js, React; Site: viditsharma.online; Commits: 1359 this year">
+<style>@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<defs><clipPath id="t"><rect height="32" width="300"><animate attributeName="width" values="0;300" dur="0.9s" fill="freeze"/></rect></clipPath></defs>
+<rect width="300" height="218" rx="6" fill="#161b22"/>
+<g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12">
+<g clip-path="url(#t)"><text x="16" y="24" xml:space="preserve"><tspan fill="#39d353">neo@github</tspan><tspan fill="#7d8590"> ~ % </tspan><tspan fill="#e6edf3">whoami</tspan></text></g>
+<rect x="169.62" y="14" width="7" height="13" fill="#39d353"><animate attributeName="opacity" values="1;0;1;0;1;0;0" dur="1.5s" begin="0.9s" fill="freeze"/></rect>
+<text x="16" y="50" fill="#39d353" font-weight="bold">neo@github</text>
+<text x="16" y="62" fill="#7d8590">----------</text>
+<g><animate attributeName="opacity" values="0;0;1" dur="1.4s" keyTimes="0;0.79;1" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;-8 0;0 0" dur="1.4s" keyTimes="0;0.79;1" fill="freeze"/><text x="16" y="82" fill="#39d353">Name</text><text x="96" y="82" fill="#e6edf3">Vidit Sharma</text></g>
+<g><animate attributeName="opacity" values="0;0;1" dur="1.55s" keyTimes="0;0.81;1" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;-8 0;0 0" dur="1.55s" keyTimes="0;0.81;1" fill="freeze"/><text x="16" y="100" fill="#39d353">Role</text><text x="96" y="100" fill="#e6edf3">AI-agent tooling builder</text></g>
+<g><animate attributeName="opacity" values="0;0;1" dur="1.7s" keyTimes="0;0.82;1" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;-8 0;0 0" dur="1.7s" keyTimes="0;0.82;1" fill="freeze"/><text x="16" y="118" fill="#39d353">Location</text><text x="96" y="118" fill="#e6edf3">Delhi, IN</text></g>
+<g><animate attributeName="opacity" values="0;0;1" dur="1.85s" keyTimes="0;0.84;1" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;-8 0;0 0" dur="1.85s" keyTimes="0;0.84;1" fill="freeze"/><text x="16" y="136" fill="#39d353">Building</text><text x="96" y="136" fill="#e6edf3">neogents · TypeScript</text></g>
+<g><animate attributeName="opacity" values="0;0;1" dur="2s" keyTimes="0;0.85;1" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;-8 0;0 0" dur="2s" keyTimes="0;0.85;1" fill="freeze"/><text x="16" y="154" fill="#39d353">Stack</text><text x="96" y="154" fill="#e6edf3">TypeScript, Node.js, React</text></g>
+<g><animate attributeName="opacity" values="0;0;1" dur="2.15s" keyTimes="0;0.86;1" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;-8 0;0 0" dur="2.15s" keyTimes="0;0.86;1" fill="freeze"/><text x="16" y="172" fill="#39d353">Site</text><text x="96" y="172" fill="#e6edf3">viditsharma.online</text></g>
+<g><animate attributeName="opacity" values="0;0;1" dur="2.3s" keyTimes="0;0.87;1" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="-8 0;-8 0;0 0" dur="2.3s" keyTimes="0;0.87;1" fill="freeze"/><text x="16" y="190" fill="#39d353">Commits</text><text x="96" y="190" fill="#e6edf3">1359 this year</text></g>
+</g>
+<rect x="16" y="204" width="18" height="10" fill="#4d4d4d"><animate attributeName="opacity" values="0;0;1" dur="2.3s" keyTimes="0;0.93;1" fill="freeze"/></rect>
+<rect x="36" y="204" width="18" height="10" fill="#f14c4c"><animate attributeName="opacity" values="0;0;1" dur="2.36s" keyTimes="0;0.94;1" fill="freeze"/></rect>
+<rect x="56" y="204" width="18" height="10" fill="#23d18b"><animate attributeName="opacity" values="0;0;1" dur="2.42s" keyTimes="0;0.94;1" fill="freeze"/></rect>
+<rect x="76" y="204" width="18" height="10" fill="#f5f543"><animate attributeName="opacity" values="0;0;1" dur="2.48s" keyTimes="0;0.94;1" fill="freeze"/></rect>
+<rect x="96" y="204" width="18" height="10" fill="#3b8eea"><animate attributeName="opacity" values="0;0;1" dur="2.54s" keyTimes="0;0.94;1" fill="freeze"/></rect>
+<rect x="116" y="204" width="18" height="10" fill="#d670d6"><animate attributeName="opacity" values="0;0;1" dur="2.6s" keyTimes="0;0.94;1" fill="freeze"/></rect>
+<rect x="136" y="204" width="18" height="10" fill="#29b8db"><animate attributeName="opacity" values="0;0;1" dur="2.66s" keyTimes="0;0.94;1" fill="freeze"/></rect>
+<rect x="156" y="204" width="18" height="10" fill="#e5e5e5"><animate attributeName="opacity" values="0;0;1" dur="2.72s" keyTimes="0;0.94;1" fill="freeze"/></rect>
+</svg>

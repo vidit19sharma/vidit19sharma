@@ -1,75 +1,108 @@
+<p align="center"><img src="assets/hero.svg" width="846" alt="Vidit Sharma — building agent tooling for Claude Code &amp; OpenCode"></p>
 
+<p align="center">
+<a href="https://viditsharma.online"><img src="https://skillicons.dev/icons?i=vercel" width="36" alt="Website"></a>&nbsp;
+<a href="https://www.linkedin.com/in/vidit-sharma-60890a1ba"><img src="https://skillicons.dev/icons?i=linkedin" width="36" alt="LinkedIn"></a>&nbsp;
+<a href="https://x.com/vidit19sharma"><img src="https://skillicons.dev/icons?i=twitter" width="36" alt="X"></a>&nbsp;
+<a href="mailto:vidit19sharma@gmail.com"><img src="https://skillicons.dev/icons?i=gmail" width="36" alt="Email"></a>
+</p>
 
-<!--
-**vidit19sharma/vidit19sharma** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<table><tr>
+<td width="300" valign="top"><img src="assets/ascii-portrait.svg" width="276" alt="ASCII portrait of Vidit Sharma"></td>
+<td valign="top">
+<h3>👾 About</h3>
+<ul>
+<li>🔭 Building <b>neogents</b> — NEO: a Claude Code plugin that turns the agent into an orchestrator with a persistent second brain</li>
+<li>🧩 Also shipping <b>opencode-cursor-auth</b> and <b>neo-skills</b></li>
+<li>🌱 Building agent tooling for Claude Code &amp; OpenCode · TypeScript · Delhi</li>
+<li>💬 Ask me about TypeScript, Node.js, React</li>
+<li>📍 Delhi, IN · <a href="https://viditsharma.online">viditsharma.online</a></li>
+</ul>
+</td>
+</tr></table>
 
-Here are some ideas to get you started:
+<table><tr>
+<td valign="top"><img src="assets/neofetch.svg" width="300" alt="neofetch: Vidit Sharma"></td>
+<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/heatmap-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/heatmap-light.svg"><img src="assets/heatmap-dark.svg" width="470" alt="1359 contributions in the last year"></picture></td>
+</tr></table>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-<div align="center">
+<h3>🚀 Projects</h3>
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/vidit19sharma/neogents"><img src="assets/shots/neogents.svg" width="400" alt="neogents"></a><br>
+<b><a href="https://github.com/vidit19sharma/neogents">neogents</a></b> &nbsp;⭐ 1<br>
+NEO: a Claude Code plugin that turns the agent into an orchestrator with a persistent second brain<br>
+<code>TypeScript</code> <code>Claude Code</code> <code>Memory</code><br>
+<a href="https://github.com/vidit19sharma/neogents">Source</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/vidit19sharma/opencode-cursor-auth"><img src="assets/shots/opencode-cursor-auth.svg" width="400" alt="opencode-cursor-auth"></a><br>
+<b><a href="https://github.com/vidit19sharma/opencode-cursor-auth">opencode-cursor-auth</a></b> &nbsp;⭐ 0<br>
+OpenCode plugin that authenticates through the Cursor SDK so you can reuse your Cursor subscription<br>
+<code>TypeScript</code> <code>OpenCode</code> <code>Cursor SDK</code><br>
+<a href="https://github.com/vidit19sharma/opencode-cursor-auth">Source</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/vidit19sharma/neo-skills"><img src="assets/shots/neo-skills.svg" width="400" alt="neo-skills"></a><br>
+<b><a href="https://github.com/vidit19sharma/neo-skills">neo-skills</a></b> &nbsp;⭐ 0<br>
+System-design skill packs and an animated-profile builder for Claude Code and OpenCode agents<br>
+<code>Shell</code> <code>Claude Code</code> <code>OpenCode</code><br>
+<a href="https://github.com/vidit19sharma/neo-skills">Source</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://inventory-management-app-phi-six.vercel.app/"><img src="assets/shots/Inventory-Management-App.png" width="400" alt="Inventory-Management-App"></a><br>
+<b><a href="https://github.com/vidit19sharma/Inventory-Management-App">Inventory-Management-App</a></b> &nbsp;⭐ 2<br>
+Full-stack inventory tracker with auth and reporting, live on Vercel<br>
+<code>EJS</code> <code>Node.js</code> <code>Express</code> <code>Vercel</code><br>
+<a href="https://inventory-management-app-phi-six.vercel.app/">Live demo</a> · <a href="https://github.com/vidit19sharma/Inventory-Management-App">Source</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://viditsharma.online"><img src="assets/shots/Dev-Portfolio.png" width="400" alt="Dev-Portfolio"></a><br>
+<b><a href="https://github.com/vidit19sharma/Dev-Portfolio">Dev-Portfolio</a></b> &nbsp;⭐ 2<br>
+Personal portfolio site powering viditsharma.online<br>
+<code>TypeScript</code> <code>React</code> <code>Vercel</code><br>
+<a href="https://viditsharma.online">Live demo</a> · <a href="https://github.com/vidit19sharma/Dev-Portfolio">Source</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/vidit19sharma/hrms"><img src="assets/shots/hrms.png" width="400" alt="hrms"></a><br>
+<b><a href="https://github.com/vidit19sharma/hrms">hrms</a></b> &nbsp;⭐ 1<br>
+HR management system: employees, leave, payroll views<br>
+<code>JavaScript</code> <code>React</code><br>
+<a href="https://github.com/vidit19sharma/hrms">Source</a>
+</td>
+</tr>
+</table>
 
-[![Hello World, I'm Vidit!](Assets/Banner.gif)](https://github.com/vidit19sharma)
+<h3>💻 Tech Stack</h3>
+<p align="center"><img src="https://skillicons.dev/icons?i=ts,nodejs,react,py,bash,claudecode,opencode,vercel&perline=7" alt="Tech stack: TypeScript, Node.js, React, Python, Shell, Claude Code, OpenCode, Vercel"></p>
 
+<h3>📊 GitHub Stats</h3>
+<table><tr>
+<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=vidit19sharma&amp;show_icons=true&amp;hide_border=true&amp;theme=github_dark"><source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=vidit19sharma&amp;show_icons=true&amp;hide_border=true&amp;theme=default"><img src="https://github-readme-stats.vercel.app/api?username=vidit19sharma&amp;show_icons=true&amp;hide_border=true&amp;theme=github_dark" width="400" alt="GitHub stats"></picture></td>
+<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=vidit19sharma&amp;hide_border=true&amp;theme=github-dark-blue"><source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=vidit19sharma&amp;hide_border=true&amp;theme=default"><img src="https://streak-stats.demolab.com?user=vidit19sharma&amp;hide_border=true&amp;theme=github-dark-blue" width="400" alt="Streak"></picture></td>
+</tr><tr>
+<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=vidit19sharma&amp;layout=compact&amp;hide_border=true&amp;theme=github_dark"><source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=vidit19sharma&amp;layout=compact&amp;hide_border=true&amp;theme=default"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vidit19sharma&amp;layout=compact&amp;hide_border=true&amp;theme=github_dark" width="400" alt="Top languages"></picture></td>
+</tr></table>
 
-[![Twitter/X](https://skillicons.dev/icons?i=twitter)](https://twitter.com/vidit19sharma) &nbsp;
-[![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/vidit-sharma-60890a1ba) &nbsp;
-[![Gmail](https://skillicons.dev/icons?i=gmail)](mailto:vidit19sharma@gmail.com?subject=Hello%20Vidit,%20From%20Github)
+<h3>🐍 Contribution snake</h3>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vidit19sharma/vidit19sharma/output/github-contribution-grid-snake-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vidit19sharma/vidit19sharma/output/github-contribution-grid-snake.svg"><img src="https://raw.githubusercontent.com/vidit19sharma/vidit19sharma/output/github-contribution-grid-snake-dark.svg" width="846" alt="Contribution snake"></picture></p>
 
-</div>
+<h3>⚡ Recent activity</h3>
+<!--ACTIVITY:START-->
+<ol>
+<li>⭐ Starred <a href="https://github.com/mattabate/life-distributable">mattabate/life-distributable</a></li>
+<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/asciilab">vidit19sharma/asciilab</a></li>
+<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/neogents">vidit19sharma/neogents</a></li>
+<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/asciilab">vidit19sharma/asciilab</a></li>
+<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/opencode-kiro-auth">vidit19sharma/opencode-kiro-auth</a></li>
+</ol>
+<p><sub>Last refreshed: 2026-11-01</sub></p>
+<!--ACTIVITY:END-->
 
-# ✨ Welcome to Neo-Verse 
-## 👾 I'm Vidit Sharma (Neo) 
-🔭 I’m currently working on AI integrated Websites<br>👯 I’m looking to collaborate on any interactive React App<br>🤝 I’m looking for help with JavaScript<br>🌱 I’m currently learning Agentic AI<br>💬 Ask me about random Computer Facts<br>⚡ Fun fact : JavaScript original name was "Mocha" 
-
----
-
-## 🚀 Projects
-
-A curated collection of projects showcasing my work in Frontend Development, Full-Stack Applications, and AI-powered tools.
-Each project focuses on clean architecture, performance, and real-world usability.
-* **📦[Inventory-Management-App](https://github.com/vidit19sharma/Inventory-Management-App)**
-  A product inventory management application (Express.js, Node.js). |  [View](https://inventory-management-app-phi-six.vercel.app/)
-
-* **🎨[Dev-Portfolio](https://github.com/vidit19sharma/Dev-Portfolio)**
-  A portfolio application for Developers (TypeScript, React). | [View](https://dev-portfolio-mu-sable.vercel.app/)
-
-* **🤖[Neogentic-Agents](https://github.com/vidit19sharma/Neogentic-Agents)**
-  An army of Python agents — likely AI/automation focused. 
-
-
----
-<!--
-## 🌐 Socials:
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/vidit19sharma) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/vidit19sharma) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:vidit19sharma@gmail.com) 
---->
-
-# 💻 Tech Stack:
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-# 📊 GitHub Stats:
-<!-- ![](https://github-readme-stats.vercel.app/api?username=vidit19sharma&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/> -->
-![](https://nirzak-streak-stats.vercel.app/?user=vidit19sharma&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=vidit19sharma&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
-
-<!--
-### ✍️ Random Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
-
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=vidit19sharma&limit=5&theme=dark&combine_all_yearly_contributions=true)
-
----
-[![](https://visitcount.itsvg.in/api?id=vidit19sharma&icon=0&color=0)](https://visitcount.itsvg.in)
---->
-  ## 💰 You can help me by Donating
-  [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/vidit19sharma) 
-
-  
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<hr>
+<p align="center"><sub><a href="https://viditsharma.online">viditsharma.online</a> · <a href="https://github.com/vidit19sharma?tab=repositories">all repositories</a> · assets refresh daily via GitHub Actions</sub></p>
