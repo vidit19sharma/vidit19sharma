@@ -28,7 +28,7 @@
   "theme": "both",
   "sections": {
     "hero": "session", "socials": true, "ascii": true, "neofetch": true, "heatmap": "square",
-    "projects": true, "stack": true, "stats": "hosted", "snake": true, "activity": true, "footer": true
+    "projects": true, "stack": true, "stats": "none", "snake": true, "activity": true, "footer": true
   },
   "ascii": { "cols": 66, "rows": 48, "row": 0.07, "hold": 3.0 }
 }

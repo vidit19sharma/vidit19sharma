@@ -58,7 +58,20 @@ for (let i = 0; i < P.length; i += 2) rows.push(`<tr>\n${P.slice(i, i + 2).map(c
 
 // Stack → skillicons ids.
 const ICON = { typescript: "ts", javascript: "js", "node.js": "nodejs", node: "nodejs", python: "py", shell: "bash", "c++": "cpp", "c#": "cs", golang: "go", postgresql: "postgres", "next.js": "nextjs", "vue.js": "vue", tailwind: "tailwind", tailwindcss: "tailwind", "github actions": "githubactions", kubernetes: "kubernetes", k8s: "kubernetes" };
-const icons = (C.stack || []).map((s) => ICON[s.toLowerCase()] || s.toLowerCase().replace(/[^a-z0-9]/g, ""));
+const wanted = (C.stack || []).map((s) => ICON[s.toLowerCase()] || s.toLowerCase().replace(/[^a-z0-9]/g, ""));
+// Unknown ids render as blank slots on skillicons, so validate against its live list (short-name aliases included).
+// Set NGP_OFFLINE=1 (selftest does) or lose the network → keep everything.
+const SHORT = "js,ts,py,tailwind,vue,nuxt,go,cf,wasm,postgres,k8s,next,mongo,md,ps,ai,pr,ae,scss,sc,net,gatsbyjs,gql,vlang,amazonwebservices,bots,express,googlecloud,mui,windi,unreal,nest,ktorio,pwsh,au,rollup,rxjs,rxjava,ghactions,sklearn".split(",");
+let known = null;
+if (!process.env.NGP_OFFLINE) {
+  try {
+    const r = await fetch("https://skillicons.dev/api/icons", { signal: AbortSignal.timeout(4000) });
+    if (r.ok) known = new Set([...(await r.json()), ...SHORT]);
+  } catch { /* offline: no filtering */ }
+}
+const icons = known ? wanted.filter((i) => known.has(i)) : wanted;
+const dropped = wanted.filter((i) => !icons.includes(i));
+if (dropped.length) console.warn(`stack: no skillicons icon for ${dropped.join(", ")} (listed in alt text only)`);
 
 // Hosted stats (opt-in; endpoints are often rate-limited).
 const enc = encodeURIComponent(U);
@@ -81,7 +94,7 @@ const view = {
   about: about.length || S.ascii, ascii: S.ascii, about_html: about.map((x) => `<li>${x}</li>`).join("\n"),
   cards: S.neofetch || (S.heatmap && S.heatmap !== "none"), neofetch: S.neofetch, heatmap: S.heatmap && S.heatmap !== "none", heatmap_html,
   projects: S.projects && rows.length, projects_html: rows.join("\n"),
-  stack: S.stack && icons.length, stack_icons: icons.join(","), stack_list: (C.stack || []).join(", "),
+  stack: S.stack && icons.length, stack_icons: icons.join(","), stack_perline: Math.min(icons.length, 15) || 1, stack_list: (C.stack || []).join(", "),
   stats: S.stats === "hosted", stats_html,
   snake: S.snake, snake_html,
   activity: S.activity, activity_html: activityBlock(A?.events || []),

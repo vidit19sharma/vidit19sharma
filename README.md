@@ -23,7 +23,7 @@
 
 <table><tr>
 <td valign="top"><img src="assets/neofetch.svg" width="300" alt="neofetch: Vidit Sharma"></td>
-<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/heatmap-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/heatmap-light.svg"><img src="assets/heatmap-dark.svg" width="470" alt="1359 contributions in the last year"></picture></td>
+<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/heatmap-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/heatmap-light.svg"><img src="assets/heatmap-dark.svg" width="470" alt="1361 contributions in the last year"></picture></td>
 </tr></table>
 
 <h3>🚀 Projects</h3>
@@ -79,15 +79,7 @@ HR management system: employees, leave, payroll views<br>
 </table>
 
 <h3>💻 Tech Stack</h3>
-<p align="center"><img src="https://skillicons.dev/icons?i=ts,nodejs,react,py,bash,claudecode,opencode,vercel&perline=7" alt="Tech stack: TypeScript, Node.js, React, Python, Shell, Claude Code, OpenCode, Vercel"></p>
-
-<h3>📊 GitHub Stats</h3>
-<table><tr>
-<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=vidit19sharma&amp;show_icons=true&amp;hide_border=true&amp;theme=github_dark"><source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=vidit19sharma&amp;show_icons=true&amp;hide_border=true&amp;theme=default"><img src="https://github-readme-stats.vercel.app/api?username=vidit19sharma&amp;show_icons=true&amp;hide_border=true&amp;theme=github_dark" width="400" alt="GitHub stats"></picture></td>
-<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=vidit19sharma&amp;hide_border=true&amp;theme=github-dark-blue"><source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=vidit19sharma&amp;hide_border=true&amp;theme=default"><img src="https://streak-stats.demolab.com?user=vidit19sharma&amp;hide_border=true&amp;theme=github-dark-blue" width="400" alt="Streak"></picture></td>
-</tr><tr>
-<td valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=vidit19sharma&amp;layout=compact&amp;hide_border=true&amp;theme=github_dark"><source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=vidit19sharma&amp;layout=compact&amp;hide_border=true&amp;theme=default"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vidit19sharma&amp;layout=compact&amp;hide_border=true&amp;theme=github_dark" width="400" alt="Top languages"></picture></td>
-</tr></table>
+<p align="center"><img src="https://skillicons.dev/icons?i=ts,nodejs,react,py,bash,vercel&perline=6" alt="Tech stack: TypeScript, Node.js, React, Python, Shell, Claude Code, OpenCode, Vercel"></p>
 
 <h3>🐍 Contribution snake</h3>
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vidit19sharma/vidit19sharma/output/github-contribution-grid-snake-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vidit19sharma/vidit19sharma/output/github-contribution-grid-snake.svg"><img src="https://raw.githubusercontent.com/vidit19sharma/vidit19sharma/output/github-contribution-grid-snake-dark.svg" width="846" alt="Contribution snake"></picture></p>
