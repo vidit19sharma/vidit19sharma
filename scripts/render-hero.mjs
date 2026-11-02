@@ -1,19 +1,16 @@
 #!/usr/bin/env node
 // Render the README hero SVG from profile.config.json.
-import { args, esc, trunc, readJSON, write } from "./_lib.mjs";
+import { args, esc, trunc, readJSON, write, palette } from "./_lib.mjs";
 
 const a = args(`
-Usage: node render-hero.mjs --config profile.config.json [--template session|masthead] [--theme dark|light] [--out assets/hero[-light].svg]
+Usage: node render-hero.mjs --config profile.config.json [--template session|masthead] [--theme dark|light|light-warm|light-cool] [--out assets/hero[-light].svg]
 session : terminal window (whoami → name, cat role.txt → tagline, ls ~/projects → featured repos)
 masthead: editorial header (kicker, hairline, big name, tagline, stack column)`, ["config"]);
 const theme = a.theme || "dark";
-if (!["dark", "light"].includes(theme)) throw new Error("--theme dark|light");
-const OUT = typeof a.out === "string" ? a.out : `assets/hero${theme === "light" ? "-light" : ""}.svg`;
-// Only colours differ between themes; geometry, timing and attributes stay identical.
-const K = {
-  dark: { win: "#161b22", page: "#0d1117", bd: "#30363d", tx: "#e6edf3", hi: "#ffffff", mu: "#7d8590", sub: "#9198a1", ac: "#39d353" },
-  light: { win: "#ffffff", page: "#ffffff", bd: "#d0d7de", tx: "#1f2328", hi: "#1f2328", mu: "#656d76", sub: "#656d76", ac: "#1a7f37" },
-}[theme];
+const P0 = palette(theme);
+const OUT = typeof a.out === "string" ? a.out : `assets/hero${theme === "dark" ? "" : "-light"}.svg`;
+// Geometry, timing and text are theme-independent; light only adds a tinted titlebar strip (bar != card).
+const K = { win: P0.card, page: P0.page, bd: P0.border, tx: P0.text, hi: P0.hi || P0.text, mu: P0.muted, sub: P0.sub || P0.muted, ac: P0.ac, cur: P0.cursor, bar: P0.bar, dots: P0.dots };
 const C = readJSON(a.config), tpl = a.template || "session";
 const featured = (C.projects || []).slice(0, 3).map((p) => p.repo);
 const stack = (C.stack || []).slice(0, 3);
@@ -43,8 +40,8 @@ text{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 <rect x="0.5" y="0.5" width="845" height="251" rx="6" fill="${K.win}" stroke="${K.bd}"/>
-<path d="M1 32.5H845" stroke="${K.bd}"/>
-<circle cx="20" cy="16" r="5" fill="${K.bd}"/><circle cx="37" cy="16" r="5" fill="${K.bd}"/><circle cx="54" cy="16" r="5" fill="${K.bd}"/>
+${K.bar !== K.win ? `<path d="M1 32V6.5A5.5 5.5 0 0 1 6.5 1H839.5A5.5 5.5 0 0 1 845 6.5V32Z" fill="${K.bar}"/>\n` : ""}<path d="M1 32.5H845" stroke="${K.bd}"/>
+${K.dots.map((c, i) => `<circle cx="${20 + i * 17}" cy="16" r="5" fill="${c}"/>`).join("")}
 <text x="423" y="20" font-size="12" fill="${K.mu}" text-anchor="middle">${esc(P)} — zsh</text>
 <text x="826" y="20" font-size="12" fill="${K.mu}" text-anchor="end">${esc(trunc(C.location, 40))}</text>
 <g font-size="13">
@@ -59,7 +56,7 @@ ${cmd(136, "cat role.txt", 0.7, 1.45)}
 ${cmd(190, "ls ~/projects", 0.75, 2.75)}
 <text class="f" style="animation-delay:3.6s" x="20" y="212" fill="${K.ac}" xml:space="preserve">${esc(trunc(projects, 100))}</text>
 <g class="f" style="animation-delay:3.8s">${prompt(236)}
-<rect class="k" x="${cx}" y="225" width="8" height="15" fill="${K.ac}"/></g>
+<rect class="k" x="${cx}" y="225" width="8" height="15" fill="${K.cur}"/></g>
 </g>
 </svg>
 `;

@@ -1,23 +1,18 @@
 #!/usr/bin/env node
 // Render contribution JSON → animated terminal-style heatmap SVG.
-import { args, esc, readJSON, write } from "./_lib.mjs";
+import { args, esc, readJSON, write, palette } from "./_lib.mjs";
 
 const a = args(`
-Usage: node render-heatmap.mjs --data data/github.json --style square|glyph --theme dark|light [--prompt "<data.user>@github"] [--out assets/heatmap[-glyph]-<theme>.svg]`, ["data"]);
+Usage: node render-heatmap.mjs --data data/github.json --style square|glyph --theme dark|light|light-warm|light-cool [--prompt "<data.user>@github"] [--out assets/heatmap[-glyph]-<dark|light>.svg]`, ["data"]);
 const style = a.style || "square", theme = a.theme || "dark";
-if (!["square", "glyph"].includes(style) || !["dark", "light"].includes(theme)) throw new Error("--style square|glyph, --theme dark|light");
+if (!["square", "glyph"].includes(style)) throw new Error("--style square|glyph");
+const K = palette(theme);
 const data = readJSON(a.data);
-const OUT = typeof a.out === "string" ? a.out : `assets/${style === "glyph" ? "heatmap-glyph" : "heatmap"}-${theme}.svg`;
+const OUT = typeof a.out === "string" ? a.out : `assets/${style === "glyph" ? "heatmap-glyph" : "heatmap"}-${theme === "dark" ? "dark" : "light"}.svg`;
 const PROMPT = typeof a.prompt === "string" ? a.prompt : `${data.user}@github`;
 
-const T = {
-  dark: { bg: "#161b22", border: null, text: "#e6edf3", muted: "#7d8590", user: "#39d353", flash: "#39d353",
-    lv: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"], empty: 'fill="#161b22" stroke="#21262d" stroke-width=".8"',
-    gl: ["#3d444d", "#2ea043", "#3fb950", "#56d364", "#7ee787"] },
-  light: { bg: "#ffffff", border: "#d0d7de", text: "#1f2328", muted: "#656d76", user: "#1a7f37", flash: "#40c463",
-    lv: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"], empty: 'fill="#ebedf0"',
-    gl: ["#afb8c1", "#40c463", "#30a14e", "#216e39", "#0a3d1f"] },
-}[theme];
+const T = { bg: K.card, border: K.frame ? K.border : null, text: K.text, muted: K.muted, user: K.ac, cur: K.cursor, flash: K.flash,
+  lv: K.heat, empty: `fill="${K.heat[0]}"${K.cell_stroke ? ` stroke="${K.cell_stroke}" stroke-width=".8"` : ""}`, gl: K.glyph };
 const GLYPH = ".:+#@", SCR = ["#", "%", "&amp;", "*", "+", "=", "?", "@", ":"];
 const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -71,7 +66,7 @@ const css = style === "square"
 const prompt = (cmd) => `<tspan fill="${T.user}">${esc(PROMPT)}</tspan><tspan fill="${T.muted}"> ~ % </tspan>${cmd ? `<tspan fill="${T.text}">${cmd}</tspan>` : ""}`;
 const cursorX = f(16 + ([...PROMPT].length + 5) * 6.02 + 1); // 10px mono ≈ 6.02px/char
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 200" width="470" height="200" role="img" aria-label="${esc(`${data.total} GitHub contributions in the last year by ${data.user}`)}">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 200" width="470" height="200"${theme === "dark" ? "" : ` data-theme="${theme}"`} role="img" aria-label="${esc(`${data.total} GitHub contributions in the last year by ${data.user}`)}">
 <style>${css}</style>
 <rect x=".5" y=".5" width="469" height="199" rx="6" fill="${T.bg}"${T.border ? ` stroke="${T.border}"` : ""}/>
 <g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10">
@@ -82,7 +77,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 200" width
 ${legend}
 <g${style === "glyph" ? ' font-size="9" font-weight="700" text-anchor="middle"' : ""}>${cells}</g>
 <text x="16" y="185" xml:space="preserve">${prompt("")}</text>
-<rect x="${cursorX}" y="176" width="6" height="11" fill="${T.user}"><animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite"/></rect>
+<rect x="${cursorX}" y="176" width="6" height="11" fill="${T.cur}"><animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite"/></rect>
 </g></svg>
 `;
 write(OUT, svg);

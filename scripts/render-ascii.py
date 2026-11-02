@@ -96,13 +96,15 @@ def main():
     ap.add_argument("--rows", type=int)
     ap.add_argument("--row", type=float)
     ap.add_argument("--hold", type=float)
-    ap.add_argument("--theme", choices=("dark", "light"), default="dark")
-    ap.add_argument("--out", help="default assets/ascii-portrait.svg (dark) / assets/ascii-portrait-light.svg (light)")
+    import json, os
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "_palettes.json")) as fh:
+        palettes = json.load(fh)
+    ap.add_argument("--theme", choices=tuple(palettes), default="dark")
+    ap.add_argument("--out", help="default assets/ascii-portrait.svg (dark) / assets/ascii-portrait-light.svg (any light*)")
     ap.add_argument("images", nargs="*")
     a = ap.parse_args()
     cfg = {}
     if a.config:
-        import json, os
         with open(a.config) as fh:
             cfg = json.load(fh)
         base = os.path.dirname(os.path.abspath(a.config))
@@ -113,13 +115,14 @@ def main():
         if getattr(a, k) is None:
             setattr(a, k, type(d)(knobs.get(k, d)))
     if not a.out:
-        a.out = "assets/ascii-portrait-light.svg" if a.theme == "light" else "assets/ascii-portrait.svg"
-    # only colours differ between themes: bg, card stroke (light only), ink, edge ink, cursor
-    bg, stroke, ink, edge, cur = (("#ffffff", ' stroke="#d0d7de"', "#1a7f37", "#116329", "#116329") if a.theme == "light"
-                                  else ("#161b22", "", "#26a641", "#39d353", "#39d353"))
+        a.out = "assets/ascii-portrait.svg" if a.theme == "dark" else "assets/ascii-portrait-light.svg"
+    P = palettes[a.theme]
+    ink, edge, cur = P["ink"], P["edge"], P["cursor"]
+    # framed (light) cards: 1px border + 22px titlebar strip; the grid shifts down by BAR and the viewBox grows
+    BAR = 22 if P.get("frame") else 0
+    H = 300 + BAR
     if not a.images:
         ap.error("no images: pass PNG paths or --config with a non-empty frames[]")
-    import os
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     frames = [to_ascii(p, a.cols, a.rows) for p in a.images]
     K, R, C = len(frames), a.row, a.cols
@@ -128,10 +131,16 @@ def main():
     p1, p2, q = R / T * 100, SLOT / T * 100, R / SLOT * 100
     hide, show = "clip-path:inset(0 100% 0 0)", "clip-path:inset(0 0 0 0)"
     o = [
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 300" width="276" height="300" role="img" '
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 {H}" width="276" height="{H}" role="img" '
         f'data-cols="{C}" data-rows="{a.rows}" data-frames="{K}" data-cell-w="{264 / C:g}" data-cell-h="6" data-theme="{a.theme}" '
         'aria-label="ASCII art of Neo\'s mascot, typed line by line">',
-        f'<rect width="276" height="300" rx="6" fill="{bg}"{stroke}/>',
+        (f'<rect x=".5" y=".5" width="275" height="{H - 1}" rx="6" fill="{P["card"]}" stroke="{P["border"]}"/>'
+         f'<path d="M1 {BAR}V6.5A5.5 5.5 0 0 1 6.5 1H269.5A5.5 5.5 0 0 1 275 6.5V{BAR}Z" fill="{P["bar"]}"/>'
+         f'<path d="M1 {BAR + 0.5}H275" stroke="{P["border"]}"/>'
+         + "".join(f'<circle cx="{12 + i * 11}" cy="{BAR / 2 + 0.5}" r="3.5" fill="{c}"/>' for i, c in enumerate(P["dots"]))
+         + f'<text x="138" y="{BAR / 2 + 4}" style="font:10px ui-monospace,SFMono-Regular,Menlo,monospace;fill:{P["muted"]}" '
+         f'text-anchor="middle">mascot.txt</text><g transform="translate(0 {BAR})">') if BAR
+        else f'<rect width="276" height="300" rx="6" fill="{P["card"]}"/>',
         f"<style>text{{font:6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;fill:{ink}}}"
         f".a{{fill:{edge}}}"
         f".k{{animation:type {T:.2f}s linear infinite;{hide}}}"
@@ -159,7 +168,7 @@ def main():
     for r in range(a.rows):
         o.append(f'<rect class="cur" width="4" height="6" x="6" y="{6 + r * 6}" fill="{cur}" opacity="0" '
                  f'style="animation-delay:{r * R:.2f}s"/>')
-    o.append("</svg>\n")
+    o.append("</g></svg>\n" if BAR else "</svg>\n")
     open(a.out, "w").write("\n".join(o))
 
 

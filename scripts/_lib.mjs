@@ -8,6 +8,18 @@ export const SKILL = join(dirname(fileURLToPath(import.meta.url)), "..");
 export const TEMPLATES = join(SKILL, "templates");
 export const MONO = "ui-monospace,SFMono-Regular,Menlo,monospace";
 
+// Colour table shared with render-ascii.py. Any non-dark theme writes the "-light" asset.
+export const PALETTES = JSON.parse(readFileSync(join(SKILL, "scripts", "_palettes.json"), "utf8"));
+export function palette(name = "dark") {
+  if (!PALETTES[name]) throw new Error(`--theme ${Object.keys(PALETTES).join("|")} (got ${name})`);
+  return PALETTES[name];
+}
+// Light-only window chrome: tinted strip of height h inside a 1px-bordered card (stroke is drawn by the card rect).
+export const titlebar = (K, W, h, label, size = 10) =>
+  `<path d="M1 ${h}V6.5A5.5 5.5 0 0 1 6.5 1H${W - 6.5}A5.5 5.5 0 0 1 ${W - 1} 6.5V${h}Z" fill="${K.bar}"/><path d="M1 ${h + 0.5}H${W - 1}" stroke="${K.border}"/>` +
+  K.dots.map((c, i) => `<circle cx="${12 + i * 11}" cy="${h / 2 + 0.5}" r="3.5" fill="${c}"/>`).join("") +
+  `<text x="${W / 2}" y="${h / 2 + 4}" font-family="${MONO}" font-size="${size}" fill="${K.muted}" text-anchor="middle">${esc(label)}</text>`;
+
 // --key value | --flag. Prints usage on --help or missing required keys.
 export function args(usage, required = []) {
   const a = {}, v = process.argv.slice(2);

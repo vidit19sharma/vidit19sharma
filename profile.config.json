@@ -27,6 +27,7 @@
   ],
   "frames": ["frames/01.png", "frames/02.png", "frames/03.png", "frames/04.png", "frames/05.png"],
   "theme": "both",
+  "light_theme": "light",
   "sections": {
     "hero": "session", "socials": true, "ascii": true, "neofetch": true, "heatmap": "square",
     "projects": true, "stack": true, "stats": "none", "snake": true, "activity": true, "footer": true

@@ -40,16 +40,18 @@ jobs:
       - name: Render heatmaps
         run: |
           P="$(node -e 'const c=require("./profile.config.json");console.log(c.handle_prompt||c.user+"@github")')"
+          L="$(node -e 'console.log(require("./profile.config.json").light_theme||"light")')"
           node scripts/render-heatmap.mjs --data data/github.json --style square --theme dark  --prompt "$P" --out assets/heatmap-dark.svg
-          node scripts/render-heatmap.mjs --data data/github.json --style square --theme light --prompt "$P" --out assets/heatmap-light.svg
+          node scripts/render-heatmap.mjs --data data/github.json --style square --theme "$L" --prompt "$P" --out assets/heatmap-light.svg
           node scripts/render-heatmap.mjs --data data/github.json --style glyph  --theme dark  --prompt "$P" --out assets/heatmap-glyph-dark.svg
-          node scripts/render-heatmap.mjs --data data/github.json --style glyph  --theme light --prompt "$P" --out assets/heatmap-glyph-light.svg
+          node scripts/render-heatmap.mjs --data data/github.json --style glyph  --theme "$L" --prompt "$P" --out assets/heatmap-glyph-light.svg
 
       - name: Render neofetch (dark + light)
         run: |
           A=""; [ -f data/audit.json ] && A="--audit data/audit.json"
+          L="$(node -e 'console.log(require("./profile.config.json").light_theme||"light")')"
           node scripts/render-neofetch.mjs --config profile.config.json --data data/github.json $A --theme dark  --out assets/neofetch.svg
-          node scripts/render-neofetch.mjs --config profile.config.json --data data/github.json $A --theme light --out assets/neofetch-light.svg
+          node scripts/render-neofetch.mjs --config profile.config.json --data data/github.json $A --theme "$L" --out assets/neofetch-light.svg
 
       - name: Update activity
         run: node scripts/update-activity.mjs --user ${{ github.repository_owner }} --readme README.md

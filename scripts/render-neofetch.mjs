@@ -1,23 +1,21 @@
 #!/usr/bin/env node
 // Render a neofetch-style card SVG from profile.config.json (+ optional contributions JSON / audit).
-import { args, esc, trunc, readJSON, write } from "./_lib.mjs";
+import { args, esc, trunc, readJSON, write, palette, titlebar } from "./_lib.mjs";
 
 const a = args(`
-Usage: node render-neofetch.mjs --config profile.config.json [--data data/github.json] [--audit data/audit.json] [--theme dark|light] [--out assets/neofetch[-light].svg]
+Usage: node render-neofetch.mjs --config profile.config.json [--data data/github.json] [--audit data/audit.json] [--theme dark|light|light-warm|light-cool] [--out assets/neofetch[-light].svg]
 Rows: Name/Role/Location/Building/Stack/Site (+ Commits when --data is given). Empty values are skipped.
 Languages bar: data.languages (bytes, from fetch-contributions) else per-repo primary languages from --audit; omitted when neither.`, ["config"]);
 const theme = a.theme || "dark";
-if (!["dark", "light"].includes(theme)) throw new Error("--theme dark|light");
-const OUT = typeof a.out === "string" ? a.out : `assets/neofetch${theme === "light" ? "-light" : ""}.svg`;
+const PL = palette(theme);
+const OUT = typeof a.out === "string" ? a.out : `assets/neofetch${theme === "dark" ? "" : "-light"}.svg`;
 const C = readJSON(a.config);
 const D = typeof a.data === "string" ? readJSON(a.data) : null;
 const AU = typeof a.audit === "string" ? readJSON(a.audit) : null;
 const P = C.handle_prompt || `${C.user}@github`;
 const p0 = (C.projects || [])[0];
-const K = {
-  dark: { bg: "#161b22", stroke: "", tx: "#e6edf3", mu: "#7d8590", ac: "#39d353", track: "#30363d" },
-  light: { bg: "#ffffff", stroke: ' stroke="#d0d7de"', tx: "#1f2328", mu: "#656d76", ac: "#1a7f37", track: "#d0d7de" },
-}[theme];
+const K = { bg: PL.card, tx: PL.text, mu: PL.muted, ac: PL.ac, cur: PL.cursor, track: PL.track };
+const BAR = PL.frame ? 22 : 0; // framed (light) cards get a titlebar strip; content shifts down by BAR
 
 const rows = [
   ["Name", C.name],
@@ -74,18 +72,21 @@ const clip = top.length ? `<clipPath id="lb"><rect x="16" y="${82 + rows.length 
 const cursorX = f(16 + ([...P].length + 11) * 7.22 + 2); // 12px mono ≈ 7.22px/char; "<P> ~ % whoami"
 const label = [...rows.map(([k, v]) => `${k}: ${v}`), top.length && `Languages: ${top.map((l) => `${l.name} ${Math.round(l.pct)}%`).join(", ")}`].filter(Boolean).join("; ");
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="${H}" viewBox="0 0 300 ${H}" data-theme="${theme}" role="img" aria-label="${esc(label)}">
+const HH = H + BAR;
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="${HH}" viewBox="0 0 300 ${HH}" data-theme="${theme}" role="img" aria-label="${esc(label)}">
 <style>@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
 <defs><clipPath id="t"><rect height="32" width="300"><animate attributeName="width" values="0;300" dur="0.9s" fill="freeze"/></rect></clipPath>${clip}</defs>
-<rect width="300" height="${H}" rx="6" fill="${K.bg}"${K.stroke}/>
+${BAR ? `<rect x=".5" y=".5" width="299" height="${HH - 1}" rx="6" fill="${K.bg}" stroke="${PL.border}"/>
+${titlebar(PL, 300, BAR, "neofetch — zsh")}
+<g transform="translate(0 ${BAR})">` : `<rect width="300" height="${H}" rx="6" fill="${K.bg}"/>`}
 <g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12">
 <g clip-path="url(#t)"><text x="16" y="24" xml:space="preserve"><tspan fill="${K.ac}">${esc(P)}</tspan><tspan fill="${K.mu}"> ~ % </tspan><tspan fill="${K.tx}">whoami</tspan></text></g>
-<rect x="${Math.min(cursorX, 284)}" y="14" width="7" height="13" fill="${K.ac}"><animate attributeName="opacity" values="1;0;1;0;1;0;0" dur="1.5s" begin="0.9s" fill="freeze"/></rect>
+<rect x="${Math.min(cursorX, 284)}" y="14" width="7" height="13" fill="${K.cur}"><animate attributeName="opacity" values="1;0;1;0;1;0;0" dur="1.5s" begin="0.9s" fill="freeze"/></rect>
 <text x="16" y="50" fill="${K.ac}" font-weight="bold">${esc(P)}</text>
 <text x="16" y="62" fill="${K.mu}">${"-".repeat(Math.min([...P].length, 36))}</text>
 ${body}
 ${lang}
-</g>
+</g>${BAR ? "</g>" : ""}
 </svg>
 `;
 write(OUT, svg);
