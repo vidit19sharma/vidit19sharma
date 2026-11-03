@@ -88,13 +88,13 @@ HR management system: employees, leave, payroll views<br>
 <h3>⚡ Recent activity</h3>
 <!--ACTIVITY:START-->
 <ol>
+<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/vidit19sharma">vidit19sharma/vidit19sharma</a></li>
+<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/neo-skills">vidit19sharma/neo-skills</a></li>
 <li>🔼 Pushed to <a href="https://github.com/vidit19sharma/vidit19sharma.github.io">vidit19sharma/vidit19sharma.github.io</a></li>
 <li>🔼 Pushed to <a href="https://github.com/vidit19sharma/vidit19sharma">vidit19sharma/vidit19sharma</a></li>
-<li>⭐ Starred <a href="https://github.com/mattabate/life-distributable">mattabate/life-distributable</a></li>
-<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/asciilab">vidit19sharma/asciilab</a></li>
-<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/neogents">vidit19sharma/neogents</a></li>
+<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/vidit19sharma.github.io">vidit19sharma/vidit19sharma.github.io</a></li>
 </ol>
-<p><sub>Last refreshed: 2026-11-02</sub></p>
+<p><sub>Last refreshed: 2026-11-03</sub></p>
 <!--ACTIVITY:END-->
 
 <hr>
