@@ -88,13 +88,13 @@ HR management system: employees, leave, payroll views<br>
 <h3>⚡ Recent activity</h3>
 <!--ACTIVITY:START-->
 <ol>
-<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/vidit19sharma">vidit19sharma/vidit19sharma</a></li>
-<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/neo-skills">vidit19sharma/neo-skills</a></li>
-<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/vidit19sharma.github.io">vidit19sharma/vidit19sharma.github.io</a></li>
-<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/vidit19sharma">vidit19sharma/vidit19sharma</a></li>
-<li>🔼 Pushed to <a href="https://github.com/vidit19sharma/vidit19sharma.github.io">vidit19sharma/vidit19sharma.github.io</a></li>
+<li>🗣 Commented on issue "format.sh looks for project config in the session cwd, so a mid-session cd turn…" in <a href="https://github.com/vidit19sharma/neogents">vidit19sharma/neogents</a></li>
+<li>🗣 Commented on issue "brain-load.sh cuts files at the cap with no marker, and tells the session not t…" in <a href="https://github.com/vidit19sharma/neogents">vidit19sharma/neogents</a></li>
+<li>🗣 Commented on issue "stop-gate.sh never fires when the session commits its own work" in <a href="https://github.com/vidit19sharma/neogents">vidit19sharma/neogents</a></li>
+<li>🗣 Commented on issue "Fix silent brain loss in brain-sync.sh; scope spawn-guard to NEO projects" in <a href="https://github.com/vidit19sharma/neogents">vidit19sharma/neogents</a></li>
+<li>🚀 Published release neogents 0.2.1 — hardened hooks, honest docs in <a href="https://github.com/vidit19sharma/neogents">vidit19sharma/neogents</a></li>
 </ol>
-<p><sub>Last refreshed: 2026-11-03</sub></p>
+<p><sub>Last refreshed: 2026-11-04</sub></p>
 <!--ACTIVITY:END-->
 
 <hr>
